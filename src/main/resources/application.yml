@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: finder
+  profiles:
+    active: local
+
+---
+spring:
+  profiles: local
+server:
+  port: 9001
+
+---
+spring:
+  profiles: dev
+server:
+  port: 9001

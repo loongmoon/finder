@@ -1,0 +1,5 @@
+/target/*
+!/target/finder-*.jar
+/.idea
+*.iml
+/logs
