@@ -9,9 +9,28 @@ spring:
   profiles: local
 server:
   port: 9001
-
+eureka:
+  instance:
+    hostname: finder
+  client:
+    #由于该应用为注册中心,所以设置为false,代表不向注册中心注册自己
+    registerWithEureka: false
+    #由于注册中心的职责就是维护服务实例,它并不需要去检索服务,所以也设置为false
+    fetchRegistry: false
+    service-url:
+      default-zone: http://localhost:9001/eureka
 ---
 spring:
-  profiles: dev
+  profiles: prod
 server:
   port: 9001
+eureka:
+  instance:
+    hostname: finder
+  client:
+    #由于该应用为注册中心,所以设置为false,代表不向注册中心注册自己
+    registerWithEureka: false
+    #由于注册中心的职责就是维护服务实例,它并不需要去检索服务,所以也设置为false
+    fetchRegistry: false
+    service-url:
+      default-zone: http://finder:9001/eureka
